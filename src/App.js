@@ -1,8 +1,11 @@
 import React from 'react'
+import Navbar from './components/Navbar'
 
 const App = () => {
   return (
-    <div>Code base</div>
+    <div className='overflox-x-hidden bg-white text-dark '>
+      <Navbar />
+    </div>
   )
 }
 
