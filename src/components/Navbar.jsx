@@ -1,5 +1,6 @@
 import React from 'react'
 import { IoMdMenu } from 'react-icons/io'
+import {motion} from 'framer-motion'
 
 const NavbarMenu = [
   {
@@ -31,8 +32,12 @@ const NavbarMenu = [
 ]
 
 const Navbar = () => {
-  return (<nav>
-    <div className="container py-10 flex justify-between items-center">
+  return (<nav className='relative z-20'>
+    <motion.div 
+    initial={{ y: -50, opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }}
+    transition={{ duration: 0.6, delay: 0.4, ease: 'easeInOut'}}    
+    className="container py-10 flex justify-between items-center">
       {/* Logo section */}
       <div>
         <h1 className='font-bold text-2xl '>E-learning</h1>
@@ -43,7 +48,7 @@ const Navbar = () => {
           {NavbarMenu.map((menu) => (
               <li key={menu.id}>
                 <a href={menu.path}
-                className='inline-block py-2 px-3 hover:text-secondary relative group'
+                className='inline-block py-2 px-3 hover: text-secondary relative group'
                 >
                   <div className=' w-2 h-2 bg-secondary absolute mt-2 rounded-full left-1/2 top-1/2 bottom-0 group-hover:block hidden'></div>
                   {menu.title}</a>
@@ -56,7 +61,7 @@ const Navbar = () => {
       <div className="lg:hidden">
         <IoMdMenu className='text-4xl' />
       </div>
-    </div>
+    </motion.div>
   </nav>)
 }
 
